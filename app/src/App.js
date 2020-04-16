@@ -19,9 +19,7 @@ class App extends React.Component {
   };
 
   handleScore = id => {
-    this.state.friends.forEach(element => { console.log("element" + JSON.stringify(element))
-    console.log("id " + id)
-    console.log("clicked? ")
+    this.state.friends.forEach(element => {
       if (id === element.id && element.clicked === false) {
         element.clicked = true;
         this.setState({ Clicked: false });
@@ -76,16 +74,16 @@ class App extends React.Component {
   render() {
     return (
       <Wrapper>
-        <h1>currentScore={this.state.currentScore}
-          highScore={this.state.highScore}</h1>
+        <h1>Current Score= {this.state.currentScore}</h1>
+        <h1>High Score= {this.state.highScore}</h1> 
         {
-          this.state.friends.map((element, i) => {
+          this.state.friends.map((element) => {
             return (
               <FriendCard
                 Clicked={this.state.Clicked}
                 handleClick={this.handleClick}
-                key={element.name}
-                id={i}
+                key={element.id}
+                id={element.id}
                 name={element.name}
                 image={element.image}
                 occupation={element.occupation}
